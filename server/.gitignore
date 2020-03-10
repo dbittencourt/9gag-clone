@@ -10,6 +10,7 @@ dist/*
 packaged-*.yaml
 error.log
 combined.log
+.env
 .env.local
 .env.prod
 .env.staging
