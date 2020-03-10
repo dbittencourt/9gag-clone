@@ -1,0 +1,18 @@
+node_modules
+.idea
+.idea/*
+.serverless
+serverless-output.yaml
+.build
+dist/*
+
+*.zip
+packaged-*.yaml
+error.log
+combined.log
+.env.local
+.env.prod
+.env.staging
+.DS_Store
+# in memory test database name
+testdb

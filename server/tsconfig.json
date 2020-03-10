@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "target": "es2016",
+        "module": "CommonJS",
+        "moduleResolution": "Node",
+        "strict": true,
+        "lib": ["DOM", "ES6", "ES7", "ESNext.AsyncIterable", "ES2016"],
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "esModuleInterop": true,
+        "baseUrl": ".",
+        "rootDir": "src/",
+        "outDir": ".build",
+        "sourceMap": true,
+        "strictPropertyInitialization": false,
+        "paths": {
+            "@src/*": ["src/*"]
+        }
+    },
+    "exclude": ["node_modules"],
+    "include": ["src/**/*"]
+}
