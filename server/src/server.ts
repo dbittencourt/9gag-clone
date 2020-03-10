@@ -5,6 +5,7 @@ import { SERVER_PORT } from './config';
 
 const server = express();
 
+//todo: add auth
 server.use(cors());
 server.use(bodyParser.json());
 
