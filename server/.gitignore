@@ -17,3 +17,4 @@ combined.log
 .DS_Store
 # in memory test database name
 testdb
+testdb/*

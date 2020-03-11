@@ -1,16 +1,14 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import cors from 'cors';
-import helmet from 'helmet';
-import { SERVER_PORT } from './config';
+import 'reflect-metadata';
+import { SERVER_PORT, MONGO_CONFIG } from './config';
+import dotenv from 'dotenv';
+import mongoose from 'mongoose';
+import app from './loaders/app';
 
-const server = express();
+//todo: move mongoose config out of here
+dotenv.config();
+mongoose.Promise = global.Promise;
+mongoose.connect(MONGO_CONFIG, { useNewUrlParser: true, useFindAndModify: false });
 
-//todo: add auth
-server.use(helmet());
-server.use(cors());
-server.use(bodyParser.json());
-
-server.listen(SERVER_PORT, () => {
+app.listen(SERVER_PORT, () => {
     console.log(`app running on port ${SERVER_PORT}`);
 });

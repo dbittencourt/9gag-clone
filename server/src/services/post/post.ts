@@ -1,29 +1,33 @@
-import { Service } from 'typedi';
+import { Service, Inject } from 'typedi';
 import { Post } from './post.types';
+import PostRepository from '@src/repositories/postRepository';
 
-@Service({ global: true })
-export class PostService {
+@Service()
+class PostService {
     //todo: add logging
-    //todo: add post repo
+    //todo: handle exceptions
 
-    async getPosts(): Promise<Post[]> {
-        throw new Error('not implemented');
+    @Inject()
+    postRepo: PostRepository;
+
+    async getPostsAsync(): Promise<Post[]> {
+        return await this.postRepo.getPostsAsync();
     }
 
-    async getPost(id: string): Promise<Post> {
-        throw new Error('not implemented');
+    async getPostAsync(id: string): Promise<Post | null> {
+        return await this.postRepo.getPostAsync(id);
     }
 
-    async addPost(post: Post) {
-        throw new Error('not implemented');
+    async addPostAsync(post: Post) {
+        await this.postRepo.addPostAsync(post);
     }
 
-    async updatePost(post: Post) {
-        throw new Error('not implemented');
+    async updatePostAsync(post: Post) {
+        await this.postRepo.updatePostAsync(post);
     }
 
-    async deletePost(id: string) {
-        throw new Error('not implemented');
+    async deletePostAsync(id: string) {
+        await this.postRepo.removePostAsync(id);
     }
 }
 
