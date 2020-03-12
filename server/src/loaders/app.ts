@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import Container from 'typedi';
 import PostsController from '@src/controllers/postsController';
+import ErrorHandlerMiddleware from '@src/middlewares/errorHandlerMiddleware';
 
 const app = express();
 
@@ -19,5 +20,7 @@ app.use(bodyParser.urlencoded({ limit: '20mb', extended: true }));
 const controller = Container.get(PostsController);
 
 app.use('/', controller.router);
+
+app.use(ErrorHandlerMiddleware);
 
 export default app;
